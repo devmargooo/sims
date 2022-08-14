@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./index.css";
+import { Game, gamePlan } from "./gamePlan";
 
-function App() {
+const initialGameNumber = 0;
+const initialResult = "";
+export default function App() {
+  const [gameIndex, setGameIndex] = useState<number>(initialGameNumber);
+  const [result, setResult] = useState<string>(initialResult);
+  const currentGame: Game = gamePlan[gameIndex];
+  const clickHandler = () => {
+    setResult(currentGame.action());
+    setGameIndex(
+        gameIndex >= gamePlan.length - 1 ? initialGameNumber : gameIndex + 1
+    );
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <button className="actionButton" type="button" onClick={clickHandler}>
+          {currentGame.title}
+        </button>
+        <div className="result">{result}</div>
+      </div>
   );
 }
-
-export default App;
