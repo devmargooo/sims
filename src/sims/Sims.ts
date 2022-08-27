@@ -3,7 +3,7 @@ export interface ISim {
     whoAmI: () => string;
 }
 
-type Sims = "human" | "cat";
+type Sims = "human" | "cat" | "dog";
 type Gender = "male" | "female" | "other" | "unknown";
 
 export abstract class Sim implements Sim {
@@ -32,11 +32,32 @@ export class Cat extends Sim {
     }
 }
 
+type DogCommand = "seat" | "voice"
+
+interface IDog extends ISim {
+    executeCommand: (command: DogCommand) => string;
+}
+
+export class Dog extends Sim implements IDog {
+    public speak() {
+        return "wof wof";
+    }
+
+    public executeCommand(command:DogCommand) {
+        switch (command) {
+            case "seat": return "Я сижу";
+            case "voice": return this.speak();
+        }
+    }
+}
+
 export class Stranger {
     createSim(type: Sims): ISim {
         switch (type) {
             case "cat":
                 return new Cat();
+            case "dog":
+                return new Dog();
             case "human":
                 return new Human();
         }

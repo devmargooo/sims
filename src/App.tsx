@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./index.css";
 import { Game, gamePlan } from "./gamePlan";
+import {ShowList} from "./sims/creationList/CreateListView";
 
 const initialGameNumber = 0;
 const initialResult = "";
@@ -16,10 +17,11 @@ export default function App() {
   };
   return (
       <div className="App">
-        <button className="actionButton" type="button" onClick={clickHandler}>
-          {currentGame.title}
-        </button>
-        <div className="result">{result}</div>
+        {/*<button className="actionButton" type="button" onClick={clickHandler}>*/}
+        {/*  {currentGame.title}*/}
+        {/*</button>*/}
+        {/*<div className="result">{result}</div>*/}
+          <ShowList/>
       </div>
   );
 }
