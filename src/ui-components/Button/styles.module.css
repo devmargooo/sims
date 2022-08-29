@@ -1,0 +1,20 @@
+.idle {
+    background: deeppink;
+    color: white;
+}
+
+.pressed {
+    background: violet;
+}
+
+.disabled {
+    background: gray;
+}
+
+.focused {
+    background: mediumvioletred;
+}
+
+.disabledFocused {
+    background: violet;
+}
