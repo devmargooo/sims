@@ -12,8 +12,7 @@ import {apiService} from "./services/apiService";
 
 export default function App() {
     useEffect(() => {
-        const sim = new Human({name: 'Kate', gender: "female"});
-        apiService.write(sim);
+        apiService.get(1).then((data) => console.log(data))
     }, []);
     return (
       <div className="App">

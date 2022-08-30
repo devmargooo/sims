@@ -16,9 +16,9 @@ class ApiService {
     public get(id:number):Promise<ISim | undefined> {
         return axios.get(`${api}/${id}`).then((response) => {
             if (response.status === 400) {
-                return;
+                return void 0;
             }
-            return parseSim(response.data);
+            return response.data;
         })
     }
 }
