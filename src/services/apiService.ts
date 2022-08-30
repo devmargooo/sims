@@ -1,7 +1,26 @@
-import {ISim} from "../sims/Sims";
+import {ISim, parseSim} from "../sims/Sims";
+import axios from "axios";
 
-export class ApiService {
+const api = 'http://localhost:3030/sims';
+
+class ApiService {
     public write(sim:ISim) {
-        const data = sim.serialize();
+        axios({
+            method: 'post',
+            url: api,
+            data: {
+                data: sim.serialize()
+            }
+        });
+    }
+    public get(id:number):Promise<ISim | undefined> {
+        return axios.get(`${api}/${id}`).then((response) => {
+            if (response.status === 400) {
+                return;
+            }
+            return parseSim(response.data);
+        })
     }
 }
+
+export const apiService = new ApiService();

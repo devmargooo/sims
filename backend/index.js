@@ -32,9 +32,17 @@ app.get("/sims/:id", (request, response) => {
     }
 });
 
+app.get("/sims", (request, response) => {
+    response.set({
+        'Access-Control-Allow-Origin': '*'
+    })
+    response.json(sims);
+});
+
 app.post("/sims", (request, response) => {
-    const id = request.body.id;
-    sims[id] = response.body;
+    const data = JSON.parse(request.body.data);
+    const id = parseInt(data.id);
+    sims[id] = data;
     response.set({
         'Access-Control-Allow-Origin': '*'
     })

@@ -8,12 +8,25 @@ export interface ISim {
     whoAmI: () => string;
     getView: () => string;
     serialize: () => string;
-    parse:(data:string) => ISim;
 }
 
 type Sims = "human" | "cat" | "dog";
 type Gender = "male" | "female" | "other" | "unknown";
 type SimView = string;
+
+export function parseSim(str:string):ISim {
+    const data = JSON.parse(str);
+    const type:Sims = data.type
+    const simData = {name: data.name, gender: data.gender};
+    switch (type) {
+        case "cat":
+            return new Cat(simData);
+        case "dog":
+            return new Dog(simData);
+        case "human":
+            return new Human(simData);
+    }
+}
 
 export abstract class Sim implements ISim {
     constructor({ name, gender }: { name?: string; gender?: Gender } = {}) {
@@ -44,9 +57,6 @@ export abstract class Sim implements ISim {
             gender: this.gender,
         }
         return JSON.stringify(obj);
-    }
-    public parse(data:string):ISim {
-        return JSON.parse(data);
     }
 }
 
