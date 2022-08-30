@@ -7,6 +7,8 @@ export interface ISim {
     speak: () => string;
     whoAmI: () => string;
     getView: () => string;
+    serialize: () => string;
+    parse:(data:string) => ISim;
 }
 
 type Sims = "human" | "cat" | "dog";
@@ -23,6 +25,7 @@ export abstract class Sim implements ISim {
     private name: string;
 
     protected abstract views:SimView[];
+    protected abstract type:Sims;
 
     public readonly id:number = getUid();
     public whoAmI() {
@@ -33,10 +36,23 @@ export abstract class Sim implements ISim {
         const index = getRandom(0, this.views.length - 1);
         return this.views[index];
     }
+    public serialize() {
+        const obj = {
+            id: this.id,
+            type: this.type,
+            name: this.name,
+            gender: this.gender,
+        }
+        return JSON.stringify(obj);
+    }
+    public parse(data:string):ISim {
+        return JSON.parse(data);
+    }
 }
 
 export class Human extends Sim {
     protected views = humanViews;
+    protected type:Sims = "human";
     public speak() {
         return "Hello";
     }
@@ -44,6 +60,7 @@ export class Human extends Sim {
 
 export class Cat extends Sim {
     protected views = catsViews;
+    protected type:Sims = "cat";
     public speak() {
         return "meow meow";
     }
@@ -57,6 +74,7 @@ interface IDog extends ISim {
 
 export class Dog extends Sim implements IDog {
     protected views = dogViews;
+    protected type:Sims = "dog";
     public speak() {
         return "wof wof";
     }
