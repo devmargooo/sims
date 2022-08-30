@@ -4,6 +4,6 @@ interface ISimpleButtonProps {
     onClick:() => void;
 }
 export const SimpleButton:React.FC<ISimpleButtonProps> =
-    ({text}) => (
-        <button style={{color: 'blue'}}>{text}</button>
+    ({text, onClick}) => (
+        <button onClick={onClick}>{text}</button>
 )

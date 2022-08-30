@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./index.css";
 import { Game, gamePlan } from "./gamePlan";
 import {ShowList} from "./sims/creationList/CreateListView";
+import {SimsGallery} from "./sims/SimsGallery/SimsGallery";
 
 const initialGameNumber = 0;
 const initialResult = "";
@@ -21,7 +22,8 @@ export default function App() {
         {/*  {currentGame.title}*/}
         {/*</button>*/}
         {/*<div className="result">{result}</div>*/}
-          <ShowList/>
+        {/*  <ShowList/>*/}
+        <SimsGallery/>
       </div>
   );
 }
