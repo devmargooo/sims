@@ -1,9 +1,9 @@
-import {ISim, parseSim} from "../sims/Sims";
+import {ISim} from "../sims/Sims";
 import axios from "axios";
 
 const api = 'http://localhost:3030/sims';
 
-class ApiService {
+class DataStorageService {
     public write(sim:ISim) {
         axios({
             method: 'post',
@@ -23,4 +23,4 @@ class ApiService {
     }
 }
 
-export const apiService = new ApiService();
+export const dataStorageService = new DataStorageService();

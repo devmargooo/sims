@@ -97,15 +97,28 @@ export class Dog extends Sim implements IDog {
     }
 }
 
-export class Stranger {
-    createSim(type: Sims): ISim {
-        switch (type) {
-            case "cat":
-                return new Cat();
-            case "dog":
-                return new Dog();
-            case "human":
-                return new Human();
-        }
+export interface IStrangerFactory {
+    createSim(): ISim
+}
+
+abstract class StrangerFactory implements IStrangerFactory {
+    public abstract createSim(): ISim
+}
+
+export class CatStrangerFactory extends StrangerFactory {
+    public createSim(): ISim {
+        return new Cat();
+    }
+}
+
+export class HumanStrangerFactory extends StrangerFactory {
+    public createSim(): ISim {
+        return new Human();
+    }
+}
+
+export class DogStrangerFactory extends StrangerFactory {
+    public createSim(): ISim {
+        return new Dog();
     }
 }

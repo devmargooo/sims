@@ -1,8 +1,8 @@
-import {ISim, Stranger, Human, Dog} from "./Sims";
+import {ISim, CatStrangerFactory, HumanStrangerFactory, Human, Dog, IStrangerFactory} from "./Sims";
 
 export function talkWithStranger(): string {
-    const strangerType = Math.random() > 0.5 ? "human" : "cat";
-    const stanger = new Stranger().createSim(strangerType);
+    const strangerFactory:IStrangerFactory = Math.random() > 0.5 ? new HumanStrangerFactory() : new CatStrangerFactory();
+    const stanger = strangerFactory.createSim();
     return stanger.speak();
 }
 
