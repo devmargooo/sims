@@ -68,11 +68,31 @@ export class Human extends Sim {
     }
 }
 
-export class Cat extends Sim {
+export interface ICat extends ISim {
+    eat():string;
+}
+
+export class Cat extends Sim implements ICat {
     protected views = catsViews;
     protected type:Sims = "cat";
     public speak() {
         return "meow meow";
+    }
+    public eat(): string {
+        return "я поел вискас"
+    }
+}
+
+export class Tiger extends Cat {
+    public eat():string {
+        return "я поел мяса, которое принес сотрудник зоопарка"
+    }
+
+}
+
+export class TysonsTiger extends Tiger {
+    public eat():string {
+        return "я поел мяса, которое принес Майк Тайсон"
     }
 }
 
