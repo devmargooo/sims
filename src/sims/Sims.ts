@@ -17,7 +17,7 @@ type SimView = string;
 export function parseSim(str:string):ISim {
     const data = JSON.parse(str);
     const type:Sims = data.type
-    const simData = {name: data.name, gender: data.gender};
+    const simData = {name: data.name, gender: data.gender, age: data.age};
     switch (type) {
         case "cat":
             return new Cat(simData);
@@ -29,13 +29,15 @@ export function parseSim(str:string):ISim {
 }
 
 export abstract class Sim implements ISim {
-    constructor({ name, gender }: { name?: string; gender?: Gender } = {}) {
+    constructor({ name, gender, age }: { name?: string; gender?: Gender, age?:number } = {}) {
         this.gender = gender || "unknown";
         this.name = name || "Stranger";
+        this.age = age || 0;
     }
 
     private gender: Gender;
     private name: string;
+    private age:number;
 
     protected abstract views:SimView[];
     protected abstract type:Sims;
