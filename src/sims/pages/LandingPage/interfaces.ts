@@ -1,4 +1,4 @@
-import {Email, Phone} from "../services/AuthService/AuthServiceDummy";
+import {Email, Phone} from "../../../services/AuthService/AuthServiceDummy";
 
 export interface ILandingPage {
     userEmail: Email;

@@ -1,4 +1,4 @@
-import {Email, Phone} from "../services/AuthService/AuthServiceDummy";
+import {Email, Phone} from "../../../services/AuthService/AuthServiceDummy";
 import {ILandingPage} from "./interfaces";
 import React, {useState} from "react";
 import {validateEmail} from "./helpers";
@@ -37,7 +37,7 @@ export const Contacts: React.FC<ILandingPage> = (props) => (
     <div className="contactsBlock">
         <p className="address">{props.address}</p>
         <p className="email">{props.email}</p>
-        <p className="email">{props.phone}</p>
+        <p className="phone">{props.phone}</p>
     </div>
 );
 
