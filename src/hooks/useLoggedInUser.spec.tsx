@@ -1,6 +1,6 @@
 import {renderHook, waitFor} from "@testing-library/react";
 import {useLoggedInUser} from "./useLoggedInUser";
-import {AuthServiceStub, Email} from "../services/AuthServiceDummy";
+import {AuthServiceStub, Email} from "../services/AuthService/AuthServiceDummy";
 
 describe("useLoggedInUser", () => {
     it("returns logged in user", async () => {

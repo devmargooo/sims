@@ -1,4 +1,4 @@
-import {Email, Phone} from "../services/AuthServiceDummy";
+import {Email, Phone} from "../services/AuthService/AuthServiceDummy";
 import {ILandingPage} from "./interfaces";
 import React, {useState} from "react";
 import {validateEmail} from "./helpers";

@@ -1,6 +1,6 @@
 // Greet.tsx
 
-import {Email, User} from "../../services/AuthServiceDummy";
+import {Email, User} from "../../services/AuthService/AuthServiceDummy";
 import React, {useEffect, useState} from "react";
 import AuthService from "./AuthService";
 

@@ -1,4 +1,4 @@
-import {AuthServiceStub, Email, Phone, User} from "../services/AuthServiceDummy";
+import {AuthServiceStub, Email, Phone, User} from "../services/AuthService/AuthServiceDummy";
 import {useEffect, useState} from "react";
 
 interface IUseLoggedInUser {

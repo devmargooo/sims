@@ -1,7 +1,7 @@
 // Greet.spec.tsx
 
 import {fireEvent, render, screen} from "@testing-library/react";
-import {Email} from "../../services/AuthServiceDummy";
+import {Email} from "../../services/AuthService/AuthServiceDummy";
 import {Greet} from "./Greet";
 
 jest.mock("./AuthService.ts", () => ({

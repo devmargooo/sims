@@ -1,4 +1,4 @@
-import {AuthServiceStub, Email, Phone} from "../../../services/AuthServiceDummy";
+import {AuthServiceStub, Email, Phone} from "../../../services/AuthService/AuthServiceDummy";
 import {getPosts} from "./getPosts";
 import {waitFor} from "@testing-library/react";
 jest.mock("../loadPosts/loadPosts", () => (
