@@ -1,0 +1,22 @@
+.container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+}
+
+.arrow {
+    font-size: 60px;
+    cursor: pointer;
+    color: deeppink;
+    background: white;
+    border: 1px solid deeppink;
+}
+
+.arrow.disabled {
+    cursor: default;
+    color: grey;
+    border: 1px solid lightgray;
+    background: lightgray;
+}

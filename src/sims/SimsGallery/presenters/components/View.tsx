@@ -1,4 +1,4 @@
-import styles from "./SimsGallery.module.css";
+import styles from "./View.module.css";
 
 interface IView {
     content: string;

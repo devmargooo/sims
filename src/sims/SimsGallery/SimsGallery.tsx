@@ -1,7 +1,7 @@
 import styles from "./SimsGallery.module.css";
 import {Human, ISim} from "../Sims";
 import {useEffect, useState} from "react";
-import {View} from "./View";
+import {View} from "./presenters/components/View";
 
 const GALLERY_LENGTH = 5;
 
