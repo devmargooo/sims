@@ -85,6 +85,8 @@ export class Cat extends Sim implements ICat {
     }
 }
 
+
+
 export class Tiger extends Cat {
     public eat():string {
         return "я поел мяса, которое принес сотрудник зоопарка"

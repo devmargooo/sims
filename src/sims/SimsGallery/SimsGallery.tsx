@@ -2,6 +2,8 @@ import styles from "./SimsGallery.module.css";
 import {Human, ISim} from "../Sims";
 import {useEffect, useState} from "react";
 import {View} from "./presenters/components/View";
+import {Gallery} from "./presenters/Gallery/Gallery";
+import {Slider} from "./presenters/Slider/Slider";
 
 const GALLERY_LENGTH = 5;
 
@@ -25,9 +27,7 @@ export const SimsGallery:React.FC = () => {
         <>
             <h1>Choose your fighter</h1>
             <div className={styles.container}>
-                {sims.map((sim) => (
-                    <View content={sim.getView()} key={sim.id}/>
-                ))}
+                <Slider sims={sims}/>
             </div>
         </>
     )

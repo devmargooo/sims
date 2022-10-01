@@ -2,6 +2,8 @@
 //     eat():string;
 // }
 
-export function feed() {
+import {Cat, ICat, Tiger, TysonsTiger} from "../sims/Sims";
 
+export function feed(cat:ICat):string {
+    return cat.eat();
 }
