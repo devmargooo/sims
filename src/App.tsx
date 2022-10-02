@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { GamePlanView } from "./sims/pages/GamePlan/GamePlanView";
 import {FeedPets} from "./sims/pages/FeedPets";
+import {ShowList} from "./sims/creationList/CreateListView";
 
 export default function App() {
     return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/" element={<GamePlanView/>}/>
           <Route path="/gallery" element={<SimsGallery/>}/>
           <Route path="/feed" element={<FeedPets/>}/>
+          <Route path="/list" element={<ShowList/>}/>
         </Routes>
       </div>
     );
